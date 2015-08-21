@@ -9,15 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var nameLabel : UILabel = nil
-    @IBOutlet var tableView : UITableView = nil
-    @IBOutlet var msgInput : UITextField = nil
+    @IBOutlet var nameLabel : UILabel? = nil
+    @IBOutlet var tableView : UITableView? = nil
+    @IBOutlet var msgInput : UITextField? = nil
     
     var chat: NSMutableArray = NSMutableArray()
     var firebase: Firebase
     var name: String
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: (NSCoder!)) {
         firebase = Firebase(url: "ADD YOUR FIREBASE URL HERE!")
         name = "Guest \(arc4random() % 1000)"
 
@@ -27,13 +27,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameLabel.text = self.name
+        nameLabel!.text = self.name
         var snapshot: FDataSnapshot = FDataSnapshot()
         
         self.firebase.observeEventType(FEventTypeChildAdded, withBlock: {snapshot in
             println(snapshot)
             self.chat.addObject(snapshot.value)
-            self.tableView.reloadData()
+            self.tableView!.reloadData()
             })
     }
     
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         textField.endEditing(true)
         
-        self.firebase.childByAutoId().setValue(["name": self.name, "text": msgInput.text])
+        self.firebase.childByAutoId().setValue(["name": self.name, "text": msgInput!.text])
         
         textField.text = ""
         return false
@@ -60,9 +60,9 @@ class ViewController: UIViewController {
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
-        var rowData: NSDictionary = self.chat[indexPath.row] as NSDictionary
-        cell.text = rowData["text"] as String
-        cell.detailTextLabel.text = rowData["name"] as String
+        var rowData: NSDictionary = self.chat[indexPath.row] as! NSDictionary
+        cell.textLabel!.text = rowData["text"] as? String
+        cell.detailTextLabel!.text = rowData["name"] as? String
         
         return cell
     }
@@ -78,22 +78,22 @@ class ViewController: UIViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        self.moveView(notification.userInfo, up: true)
+        self.moveView(notification.userInfo!, up: true)
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.moveView(notification.userInfo, up: false)
+        self.moveView(notification.userInfo!, up: false)
     }
     
     func moveView(userInfo: NSDictionary, up: Bool) {
         var keyboardEndFrame: CGRect = CGRect()
-        userInfo[UIKeyboardFrameEndUserInfoKey].getValue(&keyboardEndFrame)
+        userInfo[UIKeyboardFrameEndUserInfoKey]!.getValue(&keyboardEndFrame)
         
         var animationCurve: UIViewAnimationCurve = UIViewAnimationCurve.EaseOut
-        userInfo[UIKeyboardAnimationCurveUserInfoKey].getValue(&animationCurve)
+        userInfo[UIKeyboardAnimationCurveUserInfoKey]!.getValue(&animationCurve)
         
         var animationDuration: NSTimeInterval = NSTimeInterval()
-        userInfo[UIKeyboardAnimationDurationUserInfoKey].getValue(&animationDuration)
+        userInfo[UIKeyboardAnimationDurationUserInfoKey]!.getValue(&animationDuration)
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
