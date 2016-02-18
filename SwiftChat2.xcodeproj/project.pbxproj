@@ -8,16 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		E1143D4D194380CE000B5FC8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1143D4C194380CE000B5FC8 /* SystemConfiguration.framework */; };
-		E1143D4F194380D8000B5FC8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1143D4E194380D8000B5FC8 /* libc++.dylib */; };
 		E1576B6919437AC800CB8E9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1576B6819437AC800CB8E9D /* AppDelegate.swift */; };
 		E1576B6B19437AC800CB8E9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1576B6A19437AC800CB8E9D /* ViewController.swift */; };
 		E1576B6E19437AC800CB8E9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1576B6C19437AC800CB8E9D /* Main.storyboard */; };
 		E1576B7019437AC800CB8E9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1576B6F19437AC800CB8E9D /* Images.xcassets */; };
 		E1576B7C19437AC800CB8E9D /* SwiftChat2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1576B7B19437AC800CB8E9D /* SwiftChat2Tests.swift */; };
 		E1576B9019437F4100CB8E9D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1576B8C19437DBF00CB8E9D /* Security.framework */; };
-		E1576B9119437F4800CB8E9D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1576B8E19437DC800CB8E9D /* libicucore.dylib */; };
 		E1576B9219437F5100CB8E9D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1576B8A19437DB900CB8E9D /* CFNetwork.framework */; };
-		E1576B9319437F6300CB8E9D /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1576B8819437D9200CB8E9D /* Firebase.framework */; };
+		E1A8F6DB1C7657F1005C0AAE /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A8F6DA1C7657F1005C0AAE /* Firebase.framework */; };
+		E1A8F6DD1C76586F005C0AAE /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A8F6DC1C76586F005C0AAE /* libicucore.tbd */; };
+		E1A8F6DF1C765886005C0AAE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A8F6DE1C765886005C0AAE /* libc++.tbd */; };
+		E1A8F6E11C766068005C0AAE /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A8F6E01C766068005C0AAE /* KeyboardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		E1143D4C194380CE000B5FC8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		E1143D4E194380D8000B5FC8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		E1576B6319437AC800CB8E9D /* SwiftChat2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftChat2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1576B6719437AC800CB8E9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1576B6819437AC800CB8E9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,10 +43,12 @@
 		E1576B7A19437AC800CB8E9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1576B7B19437AC800CB8E9D /* SwiftChat2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChat2Tests.swift; sourceTree = "<group>"; };
 		E1576B8519437CD500CB8E9D /* SwiftChat2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftChat2-Bridging-Header.h"; sourceTree = "<group>"; };
-		E1576B8819437D9200CB8E9D /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		E1576B8A19437DB900CB8E9D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E1576B8C19437DBF00CB8E9D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		E1576B8E19437DC800CB8E9D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		E1A8F6DA1C7657F1005C0AAE /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		E1A8F6DC1C76586F005C0AAE /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		E1A8F6DE1C765886005C0AAE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E1A8F6E01C766068005C0AAE /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +56,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1143D4F194380D8000B5FC8 /* libc++.dylib in Frameworks */,
+				E1A8F6DF1C765886005C0AAE /* libc++.tbd in Frameworks */,
+				E1A8F6DD1C76586F005C0AAE /* libicucore.tbd in Frameworks */,
+				E1A8F6DB1C7657F1005C0AAE /* Firebase.framework in Frameworks */,
 				E1143D4D194380CE000B5FC8 /* SystemConfiguration.framework in Frameworks */,
-				E1576B9319437F6300CB8E9D /* Firebase.framework in Frameworks */,
 				E1576B9219437F5100CB8E9D /* CFNetwork.framework in Frameworks */,
-				E1576B9119437F4800CB8E9D /* libicucore.dylib in Frameworks */,
 				E1576B9019437F4100CB8E9D /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,15 +78,15 @@
 		E1576B5A19437AC800CB8E9D = {
 			isa = PBXGroup;
 			children = (
-				E1143D4E194380D8000B5FC8 /* libc++.dylib */,
+				E1A8F6DE1C765886005C0AAE /* libc++.tbd */,
+				E1A8F6DC1C76586F005C0AAE /* libicucore.tbd */,
 				E1143D4C194380CE000B5FC8 /* SystemConfiguration.framework */,
-				E1576B8E19437DC800CB8E9D /* libicucore.dylib */,
 				E1576B8C19437DBF00CB8E9D /* Security.framework */,
 				E1576B8A19437DB900CB8E9D /* CFNetwork.framework */,
-				E1576B8819437D9200CB8E9D /* Firebase.framework */,
 				E1576B6519437AC800CB8E9D /* SwiftChat2 */,
 				E1576B7819437AC800CB8E9D /* SwiftChat2Tests */,
 				E1576B6419437AC800CB8E9D /* Products */,
+				E1A8F6DA1C7657F1005C0AAE /* Firebase.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +102,7 @@
 		E1576B6519437AC800CB8E9D /* SwiftChat2 */ = {
 			isa = PBXGroup;
 			children = (
+				E1A8F6E01C766068005C0AAE /* KeyboardManager.swift */,
 				E1576B6819437AC800CB8E9D /* AppDelegate.swift */,
 				E1576B6A19437AC800CB8E9D /* ViewController.swift */,
 				E1576B6C19437AC800CB8E9D /* Main.storyboard */,
@@ -179,7 +182,9 @@
 		E1576B5B19437AC800CB8E9D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jake Johnson";
 				TargetAttributes = {
 					E1576B6219437AC800CB8E9D = {
@@ -236,6 +241,7 @@
 			files = (
 				E1576B6B19437AC800CB8E9D /* ViewController.swift in Sources */,
 				E1576B6919437AC800CB8E9D /* AppDelegate.swift in Sources */,
+				E1A8F6E11C766068005C0AAE /* KeyboardManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +295,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -360,6 +367,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jakejohnson.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftChat2/SwiftChat2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -380,6 +388,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jakejohnson.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftChat2/SwiftChat2-Bridging-Header.h";
 			};
@@ -400,6 +409,7 @@
 				INFOPLIST_FILE = SwiftChat2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jakejohnson.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -416,6 +426,7 @@
 				INFOPLIST_FILE = SwiftChat2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jakejohnson.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,25 +14,32 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54a-w0-yoX">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54a-w0-yoX">
+                                <rect key="frame" x="160" y="20" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jQA-mf-XdB">
-                                <rect key="frame" x="20" y="49" width="280" height="454"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jQA-mf-XdB">
+                                <rect key="frame" x="160" y="0.0" width="280" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="535" id="pxw-ng-1ba"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="kGj-ft-hAr"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="sqe-kh-LhJ"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvb-Yx-sjj">
-                                <rect key="frame" x="20" y="518" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvb-Yx-sjj">
+                                <rect key="frame" x="160" y="550" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8qp-ZJ-B9R"/>
+                                    <constraint firstAttribute="width" constant="280" id="rlu-cy-CG0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -40,6 +48,17 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bvb-Yx-sjj" secondAttribute="bottom" constant="20" id="05r-QU-cxl"/>
+                            <constraint firstItem="bvb-Yx-sjj" firstAttribute="top" secondItem="jQA-mf-XdB" secondAttribute="bottom" constant="15" id="09S-An-QFS"/>
+                            <constraint firstItem="54a-w0-yoX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="KX3-Ka-tgo"/>
+                            <constraint firstItem="jQA-mf-XdB" firstAttribute="trailing" secondItem="54a-w0-yoX" secondAttribute="trailing" id="Uvo-9o-ZQS"/>
+                            <constraint firstItem="jQA-mf-XdB" firstAttribute="leading" secondItem="bvb-Yx-sjj" secondAttribute="leading" id="ck1-yx-kzQ"/>
+                            <constraint firstItem="bvb-Yx-sjj" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="iXa-Vl-i98"/>
+                            <constraint firstItem="jQA-mf-XdB" firstAttribute="leading" secondItem="54a-w0-yoX" secondAttribute="leading" id="kiA-YZ-Kll"/>
+                            <constraint firstItem="jQA-mf-XdB" firstAttribute="top" secondItem="54a-w0-yoX" secondAttribute="bottom" constant="-41" id="nYT-OG-lsf"/>
+                            <constraint firstItem="jQA-mf-XdB" firstAttribute="trailing" secondItem="bvb-Yx-sjj" secondAttribute="trailing" id="pQ8-rM-8Pu"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="msgInput" destination="bvb-Yx-sjj" id="XpR-G8-d9O"/>
@@ -49,11 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="849" y="300"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

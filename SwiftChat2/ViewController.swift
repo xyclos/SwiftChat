@@ -9,29 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var nameLabel : UILabel? = nil
-    @IBOutlet var tableView : UITableView? = nil
-    @IBOutlet var msgInput : UITextField? = nil
+    @IBOutlet var nameLabel : UILabel!
+    @IBOutlet var tableView : UITableView!
+    @IBOutlet var msgInput : UITextField!
     
     var chat: NSMutableArray = NSMutableArray()
-    var firebase: Firebase
-    var name: String
+    var firebase: Firebase = Firebase(url: "ADD YOUR FIREBASE URL HERE!")
+    var name: String = "Guest"
     
-    required init(coder aDecoder: (NSCoder!)) {
-        firebase = Firebase(url: "ADD YOUR FIREBASE URL HERE!")
+    var keyboardManager: KeyboardManager!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         name = "Guest \(arc4random() % 1000)"
-
-        super.init(coder: aDecoder)
+        keyboardManager?.start()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        keyboardManager?.stop()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // setup keyboard manager
+        keyboardManager = KeyboardManager(view: view, textFields: [msgInput!])
 
         nameLabel!.text = self.name
-        var snapshot: FDataSnapshot = FDataSnapshot()
         
-        self.firebase.observeEventType(FEventTypeChildAdded, withBlock: {snapshot in
-            println(snapshot)
+        self.firebase.observeEventType(FEventType.ChildAdded, withBlock: {snapshot in
             self.chat.addObject(snapshot.value)
             self.tableView!.reloadData()
             })
@@ -44,7 +51,10 @@ class ViewController: UIViewController {
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         textField.endEditing(true)
         
-        self.firebase.childByAutoId().setValue(["name": self.name, "text": msgInput!.text])
+        var value = [String:String]()
+        value = ["name": self.name, "text": msgInput!.text!]
+        
+        self.firebase.childByAutoId().setValue(value)
         
         textField.text = ""
         return false
@@ -60,53 +70,11 @@ class ViewController: UIViewController {
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
-        var rowData: NSDictionary = self.chat[indexPath.row] as! NSDictionary
+        let rowData: NSDictionary = self.chat[indexPath.row] as! NSDictionary
         cell.textLabel!.text = rowData["text"] as? String
         cell.detailTextLabel!.text = rowData["name"] as? String
         
         return cell
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(UIKeyboardWillShowNotification)
-        NSNotificationCenter.defaultCenter().removeObserver(UIKeyboardWillHideNotification)
-    }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        self.moveView(notification.userInfo!, up: true)
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        self.moveView(notification.userInfo!, up: false)
-    }
-    
-    func moveView(userInfo: NSDictionary, up: Bool) {
-        var keyboardEndFrame: CGRect = CGRect()
-        userInfo[UIKeyboardFrameEndUserInfoKey]!.getValue(&keyboardEndFrame)
-        
-        var animationCurve: UIViewAnimationCurve = UIViewAnimationCurve.EaseOut
-        userInfo[UIKeyboardAnimationCurveUserInfoKey]!.getValue(&animationCurve)
-        
-        var animationDuration: NSTimeInterval = NSTimeInterval()
-        userInfo[UIKeyboardAnimationDurationUserInfoKey]!.getValue(&animationDuration)
-        
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(animationDuration)
-        UIView.setAnimationCurve(animationCurve)
-        
-        var keyboardFrame: CGRect = self.view.convertRect(keyboardEndFrame, toView: nil)
-        var y = keyboardFrame.size.height * (up ? -1 : 1)
-        self.view.frame = CGRectOffset(self.view.frame, 0, y)
-        
-        UIView.commitAnimations()
-    }
-
-
 }
 
